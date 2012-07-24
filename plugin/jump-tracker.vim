@@ -15,11 +15,18 @@ if !exists('g:jump_insert_mode_line')
 endif
 
 if g:jump_insert_mode_line
-  autocmd  InsertEnter  *  execute 'highlight  CursorLine    guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg='.g:jump_insert_mode_color
-  autocmd  InsertLeave  *  highlight  CursorLine    guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg=NONE
+  augroup insertgroup
+    autocmd!
+    autocmd  InsertEnter  *  execute 'highlight  CursorLine    guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg='.g:jump_insert_mode_color
+    autocmd  InsertLeave  *  highlight  CursorLine    guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg=NONE
+  augroup END
 end
 
-autocmd  InsertEnter  *  highlight  CursorColumn  guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg=NONE
+augroup insert_column_group
+  autocmd!
+  autocmd  InsertEnter  *  highlight  CursorColumn  guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg=NONE
+augroup END
+
 
 function! s:HighlightHorizontal()
   execute 'highlight CursorLine guifg=NONE guibg=NONE ctermfg=NONE ctermbg='.g:jump_line_color
@@ -67,5 +74,9 @@ function! s:CursorMove()
   let g:last_column_position = cursor_column_position
 endfunction
 
-autocmd CursorMoved * call s:CursorMove()
+
+augroup cursor_move_group
+  autocmd!
+  autocmd CursorMoved * call s:CursorMove()
+augroup END
 
