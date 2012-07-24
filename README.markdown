@@ -19,11 +19,14 @@ Configuration
 -------------
 
 configure line & column color (default if 4F2F4F)
+
     let g:jump_line_color = "3F2A22"
 
 configure insert mode line color (default is 236)
+
     let g:jump_insert_mode_color = 101
 
 to disable changing line color when going into inset mode
+
     let g:jump_insert_mode_line = 0
 
