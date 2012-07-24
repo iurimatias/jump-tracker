@@ -4,16 +4,29 @@ set cursorcolumn
 
 let g:last_line_position = 0
 
-autocmd  InsertEnter  *  highlight  CursorLine    guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg=236
+if !exists('g:jump_insert_mode_color')
+  let g:jump_insert_mode_color  = 236
+endif
+if !exists('g:jump_line_color')
+  let g:jump_line_color         = "4F2F4F"
+endif
+if !exists('g:jump_insert_mode_line')
+  let g:jump_insert_mode_line   = 1
+endif
+
+if g:jump_insert_mode_line
+  autocmd  InsertEnter  *  execute 'highlight  CursorLine    guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg='.g:jump_insert_mode_color
+  autocmd  InsertLeave  *  highlight  CursorLine    guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg=NONE
+end
+
 autocmd  InsertEnter  *  highlight  CursorColumn  guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg=NONE
-autocmd  InsertLeave  *  highlight  CursorLine    guifg=NONE  guibg=NONE  ctermfg=NONE  ctermbg=NONE
 
 function! s:HighlightHorizontal()
-  highlight CursorLine guifg=NONE guibg=NONE ctermfg=NONE ctermbg=4F2F4F
+  execute 'highlight CursorLine guifg=NONE guibg=NONE ctermfg=NONE ctermbg='.g:jump_line_color
 endfunction
 
 function! s:HighlightVertical()
-  highlight CursorColumn guifg=NONE guibg=NONE ctermfg=NONE ctermbg=4F2F4F
+  execute 'highlight CursorColumn guifg=NONE guibg=NONE ctermfg=NONE ctermbg='.g:jump_line_color
 endfunction
 
 function! s:UnHighlightHorizontal()
