@@ -18,7 +18,7 @@ Installation
 Configuration
 -------------
 
-configure line & column color (default if 4F2F4F)
+configure line & column color (default is 4F2F4F)
 
     let g:jump_line_color = "3F2A22"
 
@@ -26,7 +26,12 @@ configure insert mode line color (default is 236)
 
     let g:jump_insert_mode_color = 101
 
-to disable changing line color when going into inset mode
+to disable changing line color when going into insert mode
 
     let g:jump_insert_mode_line = 0
+
+Animated Demonstration
+----------------------
+
+![Animated Demonstration](http://c408010.r10.cf1.rackcdn.com/demo.gif)
 
