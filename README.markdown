@@ -35,3 +35,7 @@ Animated Demonstration
 
 ![Animated Demonstration](http://c408010.r10.cf1.rackcdn.com/demo.gif)
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/iurimatias/jump-tracker/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
