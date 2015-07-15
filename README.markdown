@@ -1,3 +1,4 @@
+![logo](https://i.imgur.com/1efZ5mP.png)
 VIM Jump Tracker
 =============
 
